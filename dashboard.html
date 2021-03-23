@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amot - Water</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">  
+    <link rel="icon" href="./images/water-drop 1.svg">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="main-content">
+        <nav class="burger-menu">
+            <h1>AMOT</h1>
+        </nav>
+        <nav class="sidebar">
+            <div class="sidebar-head">
+                <h1>AMOT</h1>    
+            </div>
+            <div class="sidebar-body">
+                <ul>
+                    <li><i><img src="./images/home (1).svg" alt="" width="32" height="32" style=""></i><p>Home</p></li>
+                    <li><i><img src="./images/chart.svg" width="30"  height="30"></i><p>Graphics</p></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="monitoring-area">
+            <h1 class="main-title"><i><img src="./images/water-drop 1.svg" alt=""></i>Water Monitoring</h1>
+            <div class="monitoring-content">
+                <div class="monitoring-content-item">
+                    <div class="item">
+                        <h1>ID : TA#B0</h1>
+                        <p>Status : Online</p>
+                    </div>
+                    <div class="item">
+                        <img src="./images/casa.png" alt="">
+                        <div class="tank waterTankHere1"></div>
+                        <!-- <div></div> -->
+                    </div>
+                </div>        
+                <div class="monitoring-content-item">
+                    <div class="item">
+                        <h1>ID : TA#B0</h1>
+                        <p>Status : Online</p>
+                    </div>
+                    <div class="item">
+                        <img src="./images/homb.svg" alt="">
+                        <div class="tank waterTankHere1"></div>
+                        <!-- <div></div> -->
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/waterTank.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.waterTankHere1').waterTank({
+            width: 120,
+            height: 80,
+            color: '#A1D8EF',
+            level: 100,
+        });
+    });
+    </script>
+</body>
+</html>
