@@ -64,28 +64,28 @@
                 //     console.log($('.waterTankHere2').waterTank(Math.floor(Math.random() * 100) + 0 ));
                 // }, 1000);
             });
-        // const socket = new WebSocket('ws://localhost:5000');
-        // socket.addEventListener('message', function (event) {
-        //     let jsonData = JSON.parse(event.data); 
-        //     // console.log(jsonData.water_level);           
-        //     $(document).ready(function() {
-        //         $('.waterTankHere1').waterTank({
-        //             width: 173,
-        //             height: 100,
-        //             color: '#E37474',
-        //             level: jsonData.water_level
-        //          })
-        //         // $('.waterTankHere2').waterTank({
-        //         //     width: 173,
-        //         //     height: 100,
-        //         //     color: 'grey',
-        //         //     level: 0
-        //         // }).ready(function(event) {
-        //             // setInterval(function(){ 
-        //             //     console.log($('.waterTankHere2').waterTank(Math.floor(Math.random() * 100) + 0 ));
-        //             // }, 1000);
-        //         });
-        //     });
+        const socket = new WebSocket('ws://localhost:5000');
+        socket.addEventListener('message', function (event) {
+            // let jsonData = JSON.parse(event.data); 
+            // // console.log(jsonData.water_level);           
+            // $(document).ready(function() {
+            //     $('.waterTankHere1').waterTank({
+            //         width: 173,
+            //         height: 100,
+            //         color: '#E37474',
+            //         level: jsonData.water_level
+            //      })
+            //     // $('.waterTankHere2').waterTank({
+            //     //     width: 173,
+            //     //     height: 100,
+            //     //     color: 'grey',
+            //     //     level: 0
+            //     // }).ready(function(event) {
+            //         // setInterval(function(){ 
+            //         //     console.log($('.waterTankHere2').waterTank(Math.floor(Math.random() * 100) + 0 ));
+            //         // }, 1000);
+            //     });
+            });
     </script>
 </body>
 </html>

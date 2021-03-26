@@ -28,29 +28,7 @@
         </nav>
         <div class="monitoring-area">
             <h1 class="main-title"><i><img src="./images/water-drop 1.svg" alt=""></i>Water Monitoring</h1>
-            <div class="monitoring-content">
-                <div class="monitoring-content-item">
-                    <div class="item">
-                        <h1>ID : TA#B0</h1>
-                        <p>Status : Online</p>
-                    </div>
-                    <div class="item">
-                        <img src="./images/casa.png" alt="">
-                        <div class="tank waterTankHere1"></div>
-                        <!-- <div></div> -->
-                    </div>
-                </div>        
-                <div class="monitoring-content-item">
-                    <div class="item">
-                        <h1>ID : TA#B0</h1>
-                        <p>Status : Online</p>
-                    </div>
-                    <div class="item">
-                        <img src="./images/homb.svg" alt="">
-                        <div class="tank waterTankHere1"></div>
-                        <!-- <div></div> -->
-                    </div>
-                </div>               
+            <div class="monitoring-content">               
             </div>
         </div>
     </div>
@@ -64,6 +42,51 @@
             color: '#A1D8EF',
             level: 100,
         });
+    });
+    const socket = new WebSocket('ws://localhost:5000');
+    socket.addEventListener('message', function (event) {
+        const monitoring = document.querySelector('.monitoring-content');
+        monitoring.innerHTML = ""
+        let jsonData = JSON.parse(event.data); 
+        for(let i = 0; i < jsonData.length; i++){
+            const div = document.createElement('div');
+            const divItem = document.createElement('div');
+            const divItem2= document.createElement('div');
+            const divWater = document.createElement('div')
+            const h1 = document.createElement('h1');
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            img.src = "./images/casa.png"
+            h1.innerHTML = jsonData[i].thing_id;
+            p.innerHTML = "Status: Online";
+            divItem.classList.add('item');
+            divWater.classList.add('waterTankHere'+i)
+            divItem.appendChild(h1);
+            divItem.appendChild(p);
+            divItem2.classList.add('item');
+            divItem2.appendChild(img);
+            divItem2.appendChild(divWater)
+            div.classList.add('monitoring-content-item')
+            monitoring.appendChild(div).appendChild(divItem).parentNode.appendChild(divItem2);
+            $('.waterTankHere'+i).waterTank({
+                width: 70,
+                height: 70,
+                color: '#bae5ff',
+                level: jsonData[i].water_level
+            })
+        }               
+        // $(document).ready(function() {
+
+        //     // $('.waterTankHere2').waterTank({
+        //     //     width: 173,
+        //     //     height: 100,
+        //     //     color: 'grey',
+        //     //     level: 0
+        //     // }).ready(function(event) {
+        //         // setInterval(function(){ 
+        //         //     console.log($('.waterTankHere2').waterTank(Math.floor(Math.random() * 100) + 0 ));
+        //         // }, 1000);
+        //     });
     });
     </script>
 </body>
